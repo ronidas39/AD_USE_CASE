@@ -1,5 +1,6 @@
 import io
 import csv,sys
+from create_ad_user import add_user
 actual_header="First Name|Last Name|DOB|Gender|Email|Telephone"
 
 #read file
@@ -49,7 +50,9 @@ if(header==actual_header):
             #checking if the mail attribute has value or not
             if(mail and sn):
                 #if has value
-                print("value is here")
+                print("value is presnt")
+                add_user(row)
+
             else:
                 #if has no value
                 print("no value")
