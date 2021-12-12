@@ -1,7 +1,7 @@
 import io
 import csv,sys
 from create_ad_user import add_user
-actual_header="First Name|Last Name|DOB|Gender|Email|Telephone"
+actual_header="First Name|Last Name|DOB|Gender|Email|Telephone|Membership"
 
 #read file
 with io.open("test.csv","r",encoding="utf")as f1:
@@ -41,7 +41,7 @@ if(header==actual_header):
         #geeting the count of elemenmts inside the list
         delimiter_from_file=len(delimiter_count)
         #comparing with actual element count
-        if(delimiter_from_file==6):
+        if(delimiter_from_file==7):
             #print with line number
             print(f"{line_number}, delimiters are ok")
             #getting attribute mail & last name

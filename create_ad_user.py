@@ -20,6 +20,12 @@ def add_user(row):
     try:
         pyad.aduser.ADUser.create(sAMAccountName,ou,password="Rambo@1234",upn_suffix=None,enable=True,optional_attributes=optional)
         print(f"{mail} user adeed")
+        members=user_attributes[6].split(",")
+        for member in members:
+            user_to_add=pyad.aduser.ADUser.from_cn(sAMAccountName)
+            group=pyad.adgroup.ADGroup.from_cn(member)
+            user_to_add.add_to_group(group)
+            print(f"{sAMAccountName} is added to {member}")
     except Exception as e:
         print(str(e)+mail)
 
